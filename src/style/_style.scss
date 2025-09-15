@@ -1,0 +1,61 @@
+@use './var';
+
+html {
+	font-family: var.$font;
+	color: var.$text-color-1;
+	background-color: var.$background-1;
+}
+
+body {
+	max-width: 1440px;
+	background-color: var.$background-1;
+	font-weight: var.$regular;
+	margin-left: auto;
+	margin-right: auto;
+	position: sticky;
+}
+.main-content {
+	@media (min-width: var.$desktop) {
+		position: relative;
+		margin-left: 320px;
+	}
+}
+
+.button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 17px;
+	font-weight: var.$bold;
+	font-size: 12px;
+	text-transform: var.$uppercase;
+	background-color: var.$btn-pink;
+	width: 120px;
+	height: 32px;
+	border-radius: 16px;
+	color: var.$background-2;
+
+	&:hover {
+		background-color: var.$highlight;
+		transform: scale(1.1);
+		transition: 0.2s;
+	}
+}
+
+.brands::-webkit-scrollbar {
+	display: none;
+}
+
+.brands {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
+.slide-menu::-webkit-scrollbar {
+	display: none;
+}
+
+.slide-menu {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}

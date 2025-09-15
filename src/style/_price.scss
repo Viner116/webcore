@@ -1,0 +1,114 @@
+@use './var';
+
+.price {
+	padding-left: var.$padding-mobile;
+	padding-top: var.$padding-mobile;
+	overflow: hidden;
+	margin-left: auto;
+	margin-right: auto;
+
+	& .head {
+		display: none;
+	}
+
+	&__list {
+		display: flex;
+		gap: 16px;
+	}
+
+	&__card {
+		height: 200px;
+		width: 260px;
+		background-color: var.$background-2;
+		border: var.$border-2;
+		border-radius: 6px;
+		padding: 16px;
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		justify-content: space-between;
+
+		&:hover {
+			background: linear-gradient(132deg, #bdffbf, #ffe1d1, #f4b3ff, #bdf5ff);
+			transform: scale(0.95);
+			transition: 0.2s;
+		}
+
+		& .cell {
+			display: flex;
+			flex-direction: column;
+		}
+
+		& .th {
+			font-weight: var.$medium;
+			color: var.$text-color-2;
+			line-height: 20px;
+		}
+
+		& .td {
+			font-weight: var.$regular;
+		}
+	}
+
+	&__order {
+		position: absolute;
+		bottom: 16px;
+		right: 16px;
+	}
+}
+
+.swiper-pagination {
+	position: relative;
+	padding-top: 20px;
+
+	&--bullet {
+		width: 12px;
+		height: 12px;
+		background-color: #dddddd;
+	}
+}
+
+@media (min-width: var.$tablet) {
+	.price__card {
+		display: none;
+
+		&:hover {
+			background: linear-gradient(132deg, #bdffbf, #ffe1d1, #f4b3ff, #bdf5ff);
+			transition: 0.2s;
+			transform: scale(1);
+		}
+	}
+	.head {
+		display: grid;
+		grid-template-columns: 3fr 1fr 1fr 1fr;
+		padding: 16px;
+		margin-top: 32px;
+		font-weight: var.$medium;
+		color: var.$text-color-2;
+		min-width: 720px;
+		height: 64px;
+		width: 100%;
+	}
+
+	.th {
+		display: none;
+	}
+
+	.table {
+		display: grid;
+		grid-template-rows: repeat(5, 1fr);
+		background-color: var.$background-2;
+		border-radius: 6px;
+
+		&__row {
+			display: grid;
+			grid-template-columns: 3fr 1fr 1fr 1fr;
+			min-width: 720px;
+			height: 64px;
+			width: 100%;
+			border-radius: 6px;
+			border: none;
+			align-items: center;
+		}
+	}
+}

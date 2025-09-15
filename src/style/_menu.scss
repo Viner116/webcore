@@ -1,0 +1,91 @@
+@use './var';
+
+.menu {
+	background-color: var.$background-2;
+	height: 88px;
+	border-bottom: var.$border-1;
+	padding-left: var.$padding-mobile;
+	display: flex;
+
+	@media (min-width: var.$desktop) {
+		display: none;
+	}
+
+	&__left,
+	&__right {
+		width: 100%;
+		display: flex;
+		align-items: center;
+	}
+
+	&__right {
+		justify-content: flex-end;
+	}
+
+	&__left > :first-child ::after,
+	&__right > :nth-child(3) ::after {
+		@media (min-width: var.$tablet) {
+			content: '';
+			width: 2px;
+			height: 32px;
+			background-color: #eaeaea;
+			border-radius: 1px;
+			margin-left: 16px;
+			margin-top: auto;
+			margin-bottom: auto;
+		}
+	}
+
+	&__right > :nth-child(-1n + 3) {
+		display: none;
+
+		@media (min-width: var.$tablet) {
+			display: flex;
+		}
+	}
+
+	&__icon {
+		display: flex;
+		margin-right: 16px;
+		background-color: transparent;
+	}
+
+	&__svg:hover,
+	&__logo:hover {
+		transform: scale(1.1);
+		transition: 0.2s;
+	}
+
+	&--desktop {
+		display: none;
+
+		@media (min-width: var.$desktop) {
+			display: flex;
+			gap: 30px;
+			margin-left: auto;
+			margin-right: 25px;
+		}
+
+		&__button {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			background-color: transparent;
+			font-size: var.$font-size-btn;
+		}
+
+		&__button:hover {
+			transform: scale(1.1);
+			transition: 0.2s;
+		}
+
+		&__link {
+			font-weight: 500;
+			font-size: var.$font-size-btn;
+			line-height: 24px;
+			letter-spacing: 0.2px;
+			color: #1b1c21;
+			text-decoration: none;
+		}
+	}
+}

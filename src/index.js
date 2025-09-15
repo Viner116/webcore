@@ -1,0 +1,9 @@
+import './index.html';
+import './index.scss';
+import './modules/swiper.js';
+import './modules/readMore.js';
+import './modules/showBrands.js';
+import './modules/showTech.js';
+import './modules/burger.js';
+import './modules/modalFeedback.js';
+import './modules/modalCall.js';

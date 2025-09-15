@@ -1,0 +1,138 @@
+@use './var';
+
+.tech {
+	padding-left: var.$padding-mobile;
+	padding-top: var.$padding-mobile;
+	overflow: hidden;
+	margin-left: auto;
+	margin-right: auto;
+
+	@media (min-width: var.$tablet) {
+		overflow-y: visible;
+		display: flex;
+		flex-wrap: wrap;
+		width: 768px;
+	}
+
+	@media (min-width: var.$desktop) {
+		width: 1120px;
+		padding-top: 24px;
+		padding-left: var.$padding-desktop;
+	}
+
+	&__list {
+		display: flex;
+		gap: 16px;
+		width: 2800px;
+
+		@media (min-width: var.$tablet) {
+			flex-wrap: wrap;
+			overflow: hidden;
+			height: 160px;
+		}
+
+		@media (min-width: var.$desktop) {
+			flex-wrap: wrap;
+			row-gap: 16px;
+			column-gap: 32px;
+			overflow: hidden;
+			height: 160px;
+		}
+
+		&--full {
+			@media (min-width: var.$tablet) {
+				display: flex;
+				position: relative;
+				overflow: visible;
+				height: auto;
+				z-index: 1;
+			}
+		}
+	}
+
+	&__card {
+		display: flex;
+		height: 160px;
+		width: 240px;
+		justify-content: space-between;
+		background-color: var.$background-2;
+		align-items: center;
+		border: var.$border-2;
+		border-radius: 6px;
+		padding: 16px;
+
+		&:hover {
+			background: linear-gradient(132deg, #bdffbf, #ffe1d1, #f4b3ff, #bdf5ff);
+			transform: scale(0.95);
+			transition: 0.2s;
+		}
+
+		& span {
+			font-weight: var.$medium;
+			font-size: var.$font-size-btn;
+			align-self: flex-start;
+			text-align: start;
+		}
+
+		& img {
+			align-self: flex-end;
+		}
+	}
+}
+
+.show {
+	display: none;
+
+	@media (min-width: var.$tablet) {
+		display: flex;
+		align-items: center;
+		padding-top: 24px;
+		padding-bottom: 32px;
+		font-size: var.$font-size-btn;
+		font-weight: var.$medium;
+		padding-left: var.$padding-mobile;
+		margin-left: 176px;
+		width: 170px;
+		gap: 10px;
+	}
+
+	@media (min-width: var.$desktop) {
+		padding-left: var.$padding-desktop;
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	&:hover {
+		transform: translateY(5px);
+		transition: 0.2s;
+	}
+
+	&__arrow {
+		display: inline-block;
+
+		&--up {
+			transform: rotate(180deg);
+		}
+	}
+
+	&__btn {
+		display: block;
+		font-weight: 500;
+
+		span:first-child {
+			display: inline-block;
+		}
+
+		span:last-child {
+			display: none;
+		}
+
+		&--active span:first-child {
+			display: none;
+		}
+
+		&--active span:last-child {
+			display: inline-block;
+		}
+	}
+}

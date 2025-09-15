@@ -1,0 +1,131 @@
+@use './var';
+@keyframes modal-show {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+.modal-back--active {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 5;
+	background-color: var.$background-2;
+	opacity: 0.8;
+}
+
+.modal {
+	display: none;
+	font-family: var.$font;
+	color: var.$text-color-1;
+	font-weight: var.$medium;
+	min-width: 320px;
+	max-width: 360px;
+	width: 100%;
+	height: 100%;
+	box-shadow: 15px 0 50px 0 black;
+	overflow-y: hidden;
+	overflow-x: hidden;
+	background-color: var.$background-2;
+	z-index: 6;
+	padding: 32px;
+	position: fixed;
+	right: 0;
+
+	&__close {
+		align-self: flex-start;
+
+		@media (min-width: var.$desktop) {
+			position: fixed;
+			top: 55px;
+			margin-left: -100px;
+		}
+
+		&:hover {
+			transform: scale(1.1);
+			transition: 0.2s;
+		}
+	}
+
+	&__title {
+		display: inline-block;
+		padding-top: 24px;
+		padding-bottom: 24px;
+		font-size: 24px;
+		font-weight: var.$bold;
+
+		&::before {
+			content: url(./img/highlight.svg);
+			height: 40px;
+			position: absolute;
+			left: 0;
+		}
+	}
+
+	&__container {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+
+	&__input {
+		height: 48px;
+		border: var.$border-2;
+		border-radius: 8px;
+		box-sizing: border-box;
+		padding-top: 12px;
+		padding-bottom: 12px;
+		padding-left: 16px;
+		padding-right: 16px;
+
+		&:focus {
+			border: 2px solid var.$btn-pink;
+		}
+
+		&::placeholder {
+			color: var.$text-color-2;
+			padding-top: 12px;
+		}
+
+		&--big {
+			height: 118px;
+			box-sizing: border-box;
+
+			&::placeholder {
+				position: absolute;
+				top: 0;
+			}
+		}
+	}
+
+	&__text {
+		color: var.$text-color-2;
+		font-size: 14px;
+		font-weight: var.$medium;
+	}
+
+	&__link {
+		color: var.$btn-pink;
+	}
+
+	&__button {
+		align-self: flex-end;
+	}
+
+	&--active {
+		display: block;
+		animation-name: modal-show;
+		animation-duration: 0.5s;
+	}
+}
+
+@media (min-width: var.$desktop) {
+	.modal {
+		&__close {
+			align-self: flex-start;
+		}
+	}
+}

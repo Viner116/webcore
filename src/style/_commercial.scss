@@ -1,0 +1,33 @@
+@use './var';
+
+.commercial {
+	margin-left: var.$padding-mobile;
+	margin-top: var.$padding-mobile;
+	padding-bottom: 40px;
+	font-weight: var.$regular;
+	width: 290px;
+	letter-spacing: 0.2px;
+
+	@media (min-width: var.$tablet) {
+		width: 420px;
+	}
+
+	@media (min-width: var.$desktop) {
+		margin-left: var.$padding-desktop;
+		margin-top: var.$padding-mobile;
+		width: 420px;
+	}
+
+	&--2 {
+		font-weight: var.$medium;
+		font-size: 16px;
+		padding-top: 20px;
+		line-height: 24px;
+		display: block;
+
+		&::after {
+			content: url(./img/Line.svg);
+			padding-left: 10px;
+		}
+	}
+}
